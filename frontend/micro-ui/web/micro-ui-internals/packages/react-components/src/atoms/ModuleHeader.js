@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 
 const ModuleHeader = ({
   leftContent,
@@ -28,6 +28,7 @@ const ModuleHeader = ({
             {breadcrumbs.map((item, index) => {
               const Icon = item.icon;
 
+              console.log(item);
               const handleClick = () => {
                 if (item.path) history.push(item.path);
                 else if (item.onClick) item.onClick();
@@ -35,15 +36,13 @@ const ModuleHeader = ({
 
               return (
                 <React.Fragment key={index}>
-                  {Icon && (
-                    <Icon
-                      className="icon home-icon"
-                      onClick={handleClick}
-                      style={{
-                        cursor: item.path || item.onClick ? "pointer" : "default",
-                      }}
-                    />
-                  )}
+                  {Icon && item.path ? (
+  <Link to={item.path} style={{ display: "inline-flex" }}>
+    <Icon className="icon home-icon" />
+  </Link>
+) : Icon ? (
+  <Icon className="icon home-icon" />
+) : null}
 
                   {item.label && (
                     <span
