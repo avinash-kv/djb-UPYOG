@@ -34,20 +34,11 @@ const SearchApplication = ({ onSearch, type, onClose, searchFields, searchParams
     onSearch({ ..._newParams });
   }
 
-  const clearAll = (mobileView) => {
-    const mobileViewStyles = mobileView ? { margin: 0 } : {};
-    return (
-      <LinkLabel style={{ display: "inline", ...mobileViewStyles }} onClick={clearSearch}>
-        {t("HR_COMMON_CLEAR_SEARCH")}
-      </LinkLabel>
-    );
-  };
-
   return (
     <form onSubmit={handleSubmit(onSubmitInput)}>
       <React.Fragment>
         <div className="search-container" style={{ width: "auto" }}>
-          <div className="search-complaint-container">
+          <div className="search-form-wrapper">
             {(type === "mobile" || mobileView) && (
               <div className="complaint-header" style={{ display: "flex", justifyContent: "space-between" }}>
                 <h2>{t("ES_COMMON_SEARCH_BY")}</h2>
@@ -56,7 +47,7 @@ const SearchApplication = ({ onSearch, type, onClose, searchFields, searchParams
                 </span>
               </div>
             )}
-            <div className="complaint-input-container" style={{ width: "100%" }}>
+            <div className="formcomposer-section-grid">
               {searchFields
                 ?.filter((e) => true)
                 ?.map((input, index) => (
@@ -86,20 +77,20 @@ const SearchApplication = ({ onSearch, type, onClose, searchFields, searchParams
             </div>
             <div className="inbox-action-container">
               {type === "desktop" && !mobileView && (
-                <span style={{ paddingTop: "9px" }} className="clear-search">
-                  {clearAll()}
-                </span>
+                <button onClick={clearSearch} className="clear-search generic-button">
+                  {t("HR_COMMON_CLEAR_SEARCH")}
+                </button>
               )}
               {type === "desktop" && !mobileView && (
-                <SubmitBar style={{ marginTop: "unset" }} className="submit-bar-search" label={t("ES_COMMON_SEARCH")} submit />
+                <SubmitBar style={{ marginTop: "unset" }} className="submit-bar-search generic-button" label={t("ES_COMMON_SEARCH")} submit />
               )}
             </div>
           </div>
         </div>
         {(type === "mobile" || mobileView) && (
           <ActionBar className="clear-search-container">
-            <button className="clear-search" style={{ flex: 1 }}>
-              {clearAll(mobileView)}
+            <button className="clear-search" style={{ flex: 1, margin: 0 }} onClick={clearSearch}>
+              {t("HR_COMMON_CLEAR_SEARCH")}
             </button>
             <SubmitBar label={t("HR_COMMON_SEARCH")} style={{ flex: 1 }} submit={true} />
           </ActionBar>

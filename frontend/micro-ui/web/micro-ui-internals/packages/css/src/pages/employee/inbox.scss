@@ -141,6 +141,10 @@
   gap: 16px;
 
   .filters-container {
+    display: flex;
+  flex-direction: column;
+  gap: 16px;
+
     .filter {
       .filter-card {
         border-radius: 6px;
@@ -203,14 +207,35 @@
   }
 }
 
-.clear-search,
-.clear-search .link-label {
-  @apply text-focus;
-  @apply block;
+
+
+.generic-button {
+  height: 32px;
+  border-radius: 9999999px;
+  color: #e2e8f0;
+  border: 2px solid #e2e8f0;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: all 0.2s ease;
 
   &:hover {
-    color: #000;
+    background-color: #e2e8f0;
+    color: #5d6774;
+  }
+}
+
+.clear-search,
+.clear-search .link-label {
+  @apply border-focus text-focus;
+  cursor: pointer;
+
+
+  &:hover {
+    color: #3b59df;
+    background-color: #bdc7f3;
   }
 }
 
@@ -303,7 +328,6 @@
       overflow-y: scroll;
       
       .filter {
-        @apply mt-md;
 
         .filter-card {
           @apply p-md bg-white;
@@ -467,7 +491,8 @@
 .inbox-action-container {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: center;
+  width: 100%;
 }
 
 /*
