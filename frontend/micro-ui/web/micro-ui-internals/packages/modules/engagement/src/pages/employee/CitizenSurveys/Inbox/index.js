@@ -216,7 +216,7 @@ const Inbox = ({ parentRoute }) => {
 
   const propsForFilterForm = { FilterFormFields, onFilterFormSubmit, filterFormDefaultValues: formState?.filterForm, resetFilterFormDefaultValues: filterFormDefaultValues, onFilterFormReset }
 
-  const propsForInboxTable = useInboxTableConfig({ ...{ parentRoute, onPageSizeChange, formState, totalCount: "", table: surveyList?.ServiceDefinition||[], noResultsMessage: "CS_SURVEYS_NOT_FOUND", dispatch, inboxStyles:{overflowX:"scroll", overflowY:"hidden"} } })
+  const propsForInboxTable = useInboxTableConfig({ ...{ parentRoute, onPageSizeChange, formState, totalCount: surveyList?.TotalCount, table: surveyList?.ServiceDefinition||[], noResultsMessage: "CS_SURVEYS_NOT_FOUND", dispatch, inboxStyles:{overflowX:"scroll", overflowY:"hidden"} } })
 
   const propsForInboxMobileCards = useInboxMobileCardsData({parentRoute, table:surveyList?.ServiceDefinition||[]})
   

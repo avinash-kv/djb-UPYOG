@@ -339,6 +339,7 @@ import useWTApplicationAction from "./wt/useWTApplicationAction";
 import useWTApplicationDetail from "./wt/useWTApplicationDetail";
 import useMTApplicationDetail from "./wt/useMTApplicationDetail";
 import useMTApplicationAction from "./wt/useMTApplicationAction";
+import useMDMS from "./wt/useMDMS";
 import useTenantsVENDOR from "./vendor/useTenants";
 import useEmpvendorCreate from "./vendor/useEmpvendorCreate";
 import useEmpvendorSearch from "./vendor/useEmpvendorSearch";
@@ -356,7 +357,8 @@ const wt={
   useMobileToiletCreateAPI,
   useMobileToiletSearchAPI,
   useMTApplicationDetail,
-  useMTApplicationAction
+  useMTApplicationAction,
+  useMDMS
 };
 
 const pgr = {
