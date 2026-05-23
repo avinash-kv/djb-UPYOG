@@ -307,16 +307,12 @@ const InboxComposer = ({
         </SearchForm>
         {isInboxLoading ? (
           <Loader />
+        ) : propsForInboxTable?.data?.length < 1 ? (
+          <Card className="margin-unset text-align-center">
+            {propsForInboxTable.noResultsMessage ? t(propsForInboxTable.noResultsMessage) : t("CS_MYAPPLICATIONS_NO_APPLICATION")}
+          </Card>
         ) : (
-          <div>
-            {propsForInboxTable?.data?.length < 1 ? (
-              <Card className="margin-unset text-align-center">
-                {propsForInboxTable.noResultsMessage ? t(propsForInboxTable.noResultsMessage) : t("CS_MYAPPLICATIONS_NO_APPLICATION")}
-              </Card>
-            ) : (
-              <Table t={t} {...propsForInboxTable} />
-            )}
-          </div>
+          <Table t={t} {...propsForInboxTable} />
         )}
       </div>
     </div>

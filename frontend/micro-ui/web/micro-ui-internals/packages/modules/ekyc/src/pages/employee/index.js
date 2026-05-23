@@ -11,6 +11,7 @@ import Create from "./Create";
 
 import Review from "../../components/Review";
 import EKYCForm from "./EKYCForm";
+import AssignEkyc from "../../components/AssignEkyc.js";
 
 const EmployeeApp = ({ path }) => {
   const { t } = useTranslation();
@@ -90,7 +91,7 @@ const EmployeeApp = ({ path }) => {
                 path={`${path}/assign`}
                 component={() => (
                   <LayoutWrapper layoutClass="normal">
-                    <Mapping />
+                    <AssignEkyc />
                   </LayoutWrapper>
                 )}
               />
